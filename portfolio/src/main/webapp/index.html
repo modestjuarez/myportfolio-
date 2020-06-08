@@ -7,12 +7,101 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
+   <div id="content">
+      <h1>My Portfolio: Modest Juarez's Webapp</h1>
       <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <p>I'm a computer science student that has an interest in webapplications</p><br>
+      <h2>Who am I?</h2>
+            <p>Hmmm, tough question. I'd say that I'm whoever I need to be in any given situation.</p>
+                    As the firtborn in my family, and the first to speak and understand english, I learned early on the importance of research
+              I was always a very introverted kid who was too shy to ask for help so I struggled constantly in school, especally in my ESL classes, but
+              I grew up in the age of technology so once I was taught how to use a computer, my independence increased dramatically, and I flourished educationally
+              By the time I was in 7th grade, I was handling all the calls to our internet service provider, learning about pinging a website, and translating for my parents in a business setting.
+              I was still shy around kids my age but more comfortable around adults. I still had trouble understanding and explaining anything too technical but I was the household go to tech person.
+              By the time I was in high school I was the person at home that would help with any calls to the companies that provided our public utilities like water, gas, and electricity.
+              This eary independence and self-reliece made me into the perpn I am today. I'd say I'm eccentric in taste but overall a well rounded person.
+              I'm motivating when I need to be and supportive when I don't. I can also be a leader in a situation where there is no other viable candidate.
+          </p>
+      <h3>What projects have I been a part of?</h3>
+          <p>During my second year at my local community college, I joined the NASA Ascend High-Altitude Ballooning Project, where I was a volunteed for the fall of 2018 
+              semester and then a full-fledged team member in the spring. I did not have much experience coding in c++ and I'd just started learning Java while I could not
+              create any type of intricate code, I was able to initialize some sensors. My biggest accomplishment while I was part of the group was to be able to create the
+              custom power distribution board for our spring payload. I was also part of the NASA Community College Aerospace Scholars (NCAS) program which allowed me to visit the 
+              Armstrong Flight Research Center at the Edwards Airforce base in Lancaster, CA for a week that summer. Since transfering to Arizona State University, I've been a participant
+              of two hackathons where my team won first place at the frist hackathon with an Alexa app that would help the environment. I've been able to attend different conferences around
+              the country that have strengthened my interest in the field. I've had the oppotunity to mentor other young girls in the STEM field. 
+              I've also studyied abroad in Japan, Korea, and the Czech Republic which have been amazing experiences. They were short summer programs but the experience meant so much to me.
+              My parents have never traveled outside of Arizona since they arrived here so I thought I would also never have the funds or opportunity to travel.
+          </p>
+      <section>
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+                <!-- Full-width images with caption text -->
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 8</div>
+                    <img src="/images/20190209_184846.jpg" style="width:100%">
+                    <div class="text">Beginning to build Custom PDB</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 8</div>
+                    <img src="/images/20190322_134654.jpg" style="width:100%">
+                    <div class="text">Testing Custom Power Distribution Board</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 8</div>
+                    <img src="/images/20190329_232240.jpg" style="width:100%">
+                    <div class="text">Custom PDB inside payload</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">4 / 8</div>
+                    <img src="/images/20190330_100859.jpg" style="width:100%">
+                    <div class="text">Launch Day with other schools</div>
+                </div>
+                <div class ="mySlides fade">
+                    <div class="numbertext">5 / 8</div>
+                    <img src="/images/IMG_0268.jpg" style="width:100%">
+                    <div class="text">Quick selfie in Armstrong FRC Hanger</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">6 / 8</div>
+                    <img src="/images/IMG_0294.jpg" style="width:100%">
+                    <div class="text">Rover team building project with Lego Mindstorms</div> 
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">7 / 8</div>
+                    <img src="/images/33bf5a62-61be-4976-905d-5f8cf13c8172.jpg" style="width:100%">
+                    <div class="text">My awesome Team! We won 1st place</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">8 / 8</div>
+                    <img src = "/images/IMG_2719.jpg" width="800" height="600">
+                    <div class="text">A temple I visited in Fukuoka, Japan</div>
+                </div>
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div><br>
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+                <span class="dot" onclick="currentSlide(7)"></span>
+                <span class="dot" onclick="currentSlide(8)"></span>
+            </div>
+      </section>
+      <h4>Where can you find me?</h4>
+            <p>Here are a few of my social media accounts and a video I made to promote the study abroad program I was on.</p>
+          <p>
+              <!-- Add icon library and then add icons -->
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+              <a href="www.linkedin.com/in/modestjuarez" class="fa fa-linkedin"></a>
+              <a href="https://youtu.be/SPaF-GnOtm0" class="fa fa-youtube"></a>
+              <a href="https://www.instagram.com/modestismyname/" class="fa fa-instagram"></a>
+          </p>
     </div>
   </body>
 </html>
