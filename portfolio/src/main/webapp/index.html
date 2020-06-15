@@ -33,46 +33,58 @@
               I've also studyied abroad in Japan, Korea, and the Czech Republic which have been amazing experiences. They were short summer programs but the experience meant so much to me.
               My parents have never traveled outside of Arizona since they arrived here so I thought I would also never have the funds or opportunity to travel.
           </p>
+      <!-- <p>Click the button to view some facts: </p>
+      <button onclick="getDataFromJson()">Fetch Facts!</button>
+      <ol id="data-container"></ol> -->
+      <h4>Where can you find me?</h4>
+            <p>Here are a few of my social media accounts and a video I made to promote the study abroad program I was on.</p>
+          <p>
+              <!-- Add icon library and then add icons -->
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+              <a href="www.linkedin.com/in/modestjuarez" class="fa fa-linkedin"></a>
+              <a href="https://youtu.be/SPaF-GnOtm0" class="fa fa-youtube"></a>
+              <a href="https://www.instagram.com/modestismyname/" class="fa fa-instagram"></a>
+          </p>
       <section>
             <!-- Slideshow container -->
             <div class="slideshow-container">
                 <!-- Full-width images with caption text -->
-                <div class="mySlides fade">
+                <div class="mySlides fade" style="display: block;">
                     <div class="numbertext">1 / 8</div>
                     <img src="/images/20190209_184846.jpg" style="width:100%">
                     <div class="text">Beginning to build Custom PDB</div>
                 </div>
-                <div class="mySlides fade">
+                <div class="mySlides fade" style="display: none;">
                     <div class="numbertext">2 / 8</div>
                     <img src="/images/20190322_134654.jpg" style="width:100%">
                     <div class="text">Testing Custom Power Distribution Board</div>
                 </div>
-                <div class="mySlides fade">
+                <div class="mySlides fade" style="display: none;">
                     <div class="numbertext">3 / 8</div>
                     <img src="/images/20190329_232240.jpg" style="width:100%">
                     <div class="text">Custom PDB inside payload</div>
                 </div>
-                <div class="mySlides fade">
+                <div class="mySlides fade" style="display: none;">
                     <div class="numbertext">4 / 8</div>
                     <img src="/images/20190330_100859.jpg" style="width:100%">
                     <div class="text">Launch Day with other schools</div>
                 </div>
-                <div class ="mySlides fade">
+                <div class ="mySlides fade" style="display: none;">
                     <div class="numbertext">5 / 8</div>
                     <img src="/images/IMG_0268.jpg" style="width:100%">
                     <div class="text">Quick selfie in Armstrong FRC Hanger</div>
                 </div>
-                <div class="mySlides fade">
+                <div class="mySlides fade" style="display: none;">
                     <div class="numbertext">6 / 8</div>
                     <img src="/images/IMG_0294.jpg" style="width:100%">
                     <div class="text">Rover team building project with Lego Mindstorms</div> 
                 </div>
-                <div class="mySlides fade">
+                <div class="mySlides fade" style="display: none;">
                     <div class="numbertext">7 / 8</div>
                     <img src="/images/33bf5a62-61be-4976-905d-5f8cf13c8172.jpg" style="width:100%">
                     <div class="text">My awesome Team! We won 1st place</div>
                 </div>
-                <div class="mySlides fade">
+                <div class="mySlides fade" style="display: none;">
                     <div class="numbertext">8 / 8</div>
                     <img src = "/images/IMG_2719.jpg" width="800" height="600">
                     <div class="text">A temple I visited in Fukuoka, Japan</div>
@@ -93,15 +105,17 @@
                 <span class="dot" onclick="currentSlide(8)"></span>
             </div>
       </section>
-      <h4>Where can you find me?</h4>
-            <p>Here are a few of my social media accounts and a video I made to promote the study abroad program I was on.</p>
-          <p>
-              <!-- Add icon library and then add icons -->
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-              <a href="www.linkedin.com/in/modestjuarez" class="fa fa-linkedin"></a>
-              <a href="https://youtu.be/SPaF-GnOtm0" class="fa fa-youtube"></a>
-              <a href="https://www.instagram.com/modestismyname/" class="fa fa-instagram"></a>
-          </p>
+      <div>
+          <h4>Leave a Comment Below</h4>
+          <p>What did you think of my page</p>
+          <div onload="getDataFromJson()"></div>
+          <form action="/data" method"POST">
+                <p>Comments:</p>
+                <textarea name="text-input"></textarea><br></br>
+                <input type="submit" />
+         </form><br></br>
+         <ul id="data-container"></ul>
+      </div>
     </div>
   </body>
 </html>
