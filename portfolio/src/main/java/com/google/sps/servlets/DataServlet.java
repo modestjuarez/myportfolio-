@@ -23,41 +23,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
-//@WebServlet("/data")
-/*public class DataServlet extends HttpServlet {
-
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-    //create and initialize array list
-    ArrayList<String> commentsToShow = new ArrayList<String>();
-    commentsToShow.add("Modest");
-    commentsToShow.add("Phoenix");
-    commentsToShow.add("Arizona");
-
-    //Convert to Json
-    String json = convertToJson(commentsToShow);
-
-    //Send Json as response
-    response.setContentType("application/json;");
-    response.getWriter().println(json);
-  }
-
-  //convertToJson function
-  private String convertToJson(ArrayList<String> commentsToShow){
-    String json = "{";
-    json += "\"name\": ";
-    json += "\"" + commentsToShow.get(0) + "\"";
-    json += ", ";
-    json += "\"city\": ";
-    json += "\"" + commentsToShow.get(1) + "\"";
-    json += ", ";
-    json += "\"state\": ";
-    json += "\"" + commentsToShow.get(2) + "\"";
-    json += "}";
-    return json;
-  }
-}*/
 //POST and GET Practice
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
@@ -69,18 +34,28 @@ public class DataServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Get the input from the form and add to ArrayList
         String newComments = getParameter(request, "text-input", "");
-        commentsShowing.add("Entered Comment: " + newComments);
-        count++;
+        //if there is a value add it to array
+        if(newComments!=""){
+            commentsShowing.add(newComments);
+            count++;
+        }
+
+        /*if array already has a value, then reset comment with new value
+        else if(count > 0){
+            commentsShowing = new ArrayList<String>();
+            if (newComments!=""){
+                commentsShowing.add(newComments);
+                count++;
+            }
+        }*/
 
         // Redirect back to the HTML page.
         response.sendRedirect("/index.html");
-        
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
       response.setContentType("application/json");
-          commentsShowing.add("Testing");
           String json = convertToJson(commentsShowing, count);
           // Respond with the result.
           response.getWriter().println(json);
@@ -90,27 +65,27 @@ public class DataServlet extends HttpServlet {
   //convertToJson function
   private String convertToJson(ArrayList<String> commentsShowing, int size){
       String json = "{";
-      if (size==0){
-            json += "\"Comment\": ";
+      if (size==1){
+            json += "\"enteredComment\": ";
             json += "\"" + commentsShowing.get(0) + "\"";
             json += "}";
         }
-        else if(size == 1){
-            json += "\"Comment\": ";
+        else if(size == 2){
+            json += "\"enteredComment\": ";
             json += "\"" + commentsShowing.get(0) + "\"";
             json += ", "; 
-            json += "\"Comment\": ";
+            json += "\"enteredComment\": ";
             json += "\"" + commentsShowing.get(1) + "\"";
             json += "}";
         }
-        else if(size > 1){
+        else {
             for (int i =0; i<size-1; i++){
-                json += "\"Comment\": ";
+                json += "\"enteredComment\": ";
                 json += "\"" + commentsShowing.get(i) + "\"";
                 json += ", ";
             }
-            json += "\"Comment\": ";
-            json += "\"" + commentsShowing.get(size) + "\"";
+            json += "\"enteredComment\": ";
+            json += "\"" + commentsShowing.get(size-1) + "\"";
             json += "}";
         }
         return json;

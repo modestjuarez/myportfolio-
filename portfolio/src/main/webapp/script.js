@@ -51,25 +51,18 @@ function getDataFromJson() {
     fetch('/data')
     .then(response => response.json())
     .then((comments) => {
-        /*// comments is an object, not a string, so we have to
-        // reference its fields to create HTML content
-        //For Step 3
-        const commentsListElement = document.getElementById('data-container');
-        commentsListElement.innerHTML = ' ';
+    const commentsListElement = document.getElementById('data-container');
+    commentsListElement.innerHTML = '';
+        //console.log(typeof(comments));
         commentsListElement.appendChild(
-            createListElement('Name: ' + comments.name));
-        commentsListElement.appendChild(
-            createListElement('City: ' + comments.city));
-        commentsListElement.appendChild(
-            createListElement('State: ' + comments.state));*/
-
-        //Step 4
-        const commentsListElement = document.getElementById('data-container');
-        commentsListElement.innerHTML = ' ';
-        commentsListElement.appendChild(
-            createListElement('Comments: ' + comments.Comment));
+            createListElement(comments.enteredComment));
+        console.log(comments);
     });
 }
+
+//function myFunction(item, index) {
+  //document.getElementById('data-container').innerHTML += index + ":" + item + "<br>";
+//}
 
 /** Creates an <li> element containing text. */
 function createListElement(text) {
