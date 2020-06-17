@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="getDataFromJson()">
    <div id="content">
       <h1>My Portfolio: Modest Juarez's Webapp</h1>
       <p>This is my portfolio.</p>
@@ -108,17 +108,18 @@
       <div>
           <h3>Leave a Comment Below</h3>
           <p>What did you think of my page?</p>
-          <div onload="getDataFromJson()">
+          <div>
                 <form action="/data" method="POST">
-                      <p>Comments:</p>
+                      <p>Leave a comment below:</p>
                       <textarea name="text-input"></textarea><br></br>
                       <input type="submit" />
                  </form><br></br>
-                 <ul id="data-container"></ul>
+                 <h3>Comments:</h3>
+                 <ol id="data-container"></ol><br><br></br>
           </div>
-          <p>Click the button to view some facts: </p>
+          <!--<p>Click the button to view some facts: </p>
           <button onclick="getDataFromJson()">Fetch Comments!</button>
-          <ol id="data-container"></ol>
+          <ol id="data-container"></ol>-->
       </div>
     </div>
   </body>

@@ -53,16 +53,14 @@ function getDataFromJson() {
     .then((comments) => {
     const commentsListElement = document.getElementById('data-container');
     commentsListElement.innerHTML = '';
-        //console.log(typeof(comments));
-        commentsListElement.appendChild(
-            createListElement(comments.enteredComment));
+    //Loop through comments array from json
+    for(let i = 0; i < comments.length; i++){
+            commentsListElement.appendChild(
+            createListElement(comments[i]));
+    }
         console.log(comments);
     });
 }
-
-//function myFunction(item, index) {
-  //document.getElementById('data-container').innerHTML += index + ":" + item + "<br>";
-//}
 
 /** Creates an <li> element containing text. */
 function createListElement(text) {

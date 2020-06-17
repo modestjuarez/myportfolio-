@@ -35,20 +35,10 @@ public class DataServlet extends HttpServlet {
         // Get the input from the form and add to ArrayList
         String newComments = getParameter(request, "text-input", "");
         //if there is a value add it to array
-        if(newComments!=""){
+        //if(newComments!=""){
             commentsShowing.add(newComments);
-            count++;
-        }
-
-        /*if array already has a value, then reset comment with new value
-        else if(count > 0){
-            commentsShowing = new ArrayList<String>();
-            if (newComments!=""){
-                commentsShowing.add(newComments);
-                count++;
-            }
-        }*/
-
+          //  count++;
+        //}
         // Redirect back to the HTML page.
         response.sendRedirect("/index.html");
     }
@@ -56,40 +46,18 @@ public class DataServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
       response.setContentType("application/json");
-          String json = convertToJson(commentsShowing, count);
-          // Respond with the result.
-          response.getWriter().println(json);
+        //String json = convertToJson(commentsShowing, count);
+        String json = convertToJsonUsingGson(commentsShowing);
+        // Respond with the result.
+        response.getWriter().println(json);
     }
 
-
-  //convertToJson function
-  private String convertToJson(ArrayList<String> commentsShowing, int size){
-      String json = "{";
-      if (size==1){
-            json += "\"enteredComment\": ";
-            json += "\"" + commentsShowing.get(0) + "\"";
-            json += "}";
-        }
-        else if(size == 2){
-            json += "\"enteredComment\": ";
-            json += "\"" + commentsShowing.get(0) + "\"";
-            json += ", "; 
-            json += "\"enteredComment\": ";
-            json += "\"" + commentsShowing.get(1) + "\"";
-            json += "}";
-        }
-        else {
-            for (int i =0; i<size-1; i++){
-                json += "\"enteredComment\": ";
-                json += "\"" + commentsShowing.get(i) + "\"";
-                json += ", ";
-            }
-            json += "\"enteredComment\": ";
-            json += "\"" + commentsShowing.get(size-1) + "\"";
-            json += "}";
-        }
-        return json;
+  private String convertToJsonUsingGson(ArrayList<String> commentsShowing) {
+    Gson gson = new Gson();
+    String json = gson.toJson(commentsShowing);
+    return json;
   }
+
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {
     String value = request.getParameter(name);
     if (value == null) {
@@ -97,4 +65,4 @@ public class DataServlet extends HttpServlet {
     }
     return value;
   }
-}
+}//end of java file
