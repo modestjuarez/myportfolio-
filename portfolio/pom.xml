@@ -24,6 +24,13 @@
       <scope>provided</scope>
     </dependency>
     
+    <!--Maven Dependency for datastore which is a part of the App Engine SDK-->
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-api-1.0-sdk</artifactId>
+      <version>1.9.59</version>
+    </dependency>
+
     <!-- Gson dependency -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
