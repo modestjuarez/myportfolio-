@@ -12,34 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- 
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
-
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}*/
-//create a different place to travel to in Japan
-function randomLocation(){
-    const locationsJapan = ['Fukuoka', 'Osaka', 'Kobe', 'Hiroshima', 'Tokyo'];
-
-    //pick random location
-    const oneLocation = locationsJapan[Math.floor(Math.random() * locationsJapan.length)];
-
-    // add to page
-    const oneLocationContainer = document.getElementById('oneLocation-container');
-    oneLocationContainer.innerText = oneLocation;
-}
-
 //Following code was retrieved from w3schools.com
-var slideIndex = 0;
+var slideIndex = 1;
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -56,8 +30,12 @@ function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) {
+      slideIndex = 1
+      }
+  if (n < 1) {
+      slideIndex = slides.length
+      }
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
   }
@@ -66,4 +44,27 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
+}
+
+//Fetch the comment from servers and add it to DOM
+function getDataFromJson() {
+    fetch('/data')
+    .then(response => response.json())
+    .then((comments) => {
+    const commentsListElement = document.getElementById('data-container');
+    commentsListElement.innerHTML = '';
+    //Loop through comments array from json
+    for(let i = 0; i < comments.length; i++){
+            commentsListElement.appendChild(
+            createListElement(comments[i]));
+    }
+        console.log(comments);
+    });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
