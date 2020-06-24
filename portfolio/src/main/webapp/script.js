@@ -47,6 +47,7 @@ function showSlides(n) {
 }
 
 //Fetch the comment from servers and add it to DOM
+//Fetch the comment from servers and add it to DOM
 function getDataFromJson() {
     fetch('/data')
     .then(response => response.json())
@@ -67,3 +68,38 @@ function createTaskElement(task) {
   titleElement.innerText = task.title;
   return titleElement;
 }
+/*function getTranslation(){
+    fetch('/data')
+    .then(response => response.text())
+    .then((transComments) => {
+        const languageCode = document.getElementById('language').value;
+        const transListEl = document.getElementById('translation-results');
+        transListEl.innerHTML = 'Loading...';
+        //retrieve comments to translate
+        transComments.forEach((task) => {
+                //translate
+                const text = task.title;
+                //add each translated task to list
+        })
+    })
+}*/
+
+function getTranslation() {
+        const text = document.getElementById('text').value;
+        const languageCode = document.getElementById('language').value;
+
+        const resultContainer = document.getElementById('result');
+        resultContainer.innerText = 'Loading...';
+
+        const params = new URLSearchParams();
+        params.append('text', text);
+        params.append('languageCode', languageCode);
+
+        fetch('/translate', {
+          method: 'POST',
+          body: params
+        }).then(response => response.text())
+        .then((translatedMessage) => {
+          resultContainer.innerText = translatedMessage;
+        });
+      }
