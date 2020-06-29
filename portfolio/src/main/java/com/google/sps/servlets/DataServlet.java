@@ -28,6 +28,9 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.sps.data.Task;
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 //POST and GET Practice
@@ -78,21 +81,11 @@ public class DataServlet extends HttpServlet {
                 Task task = new Task(id, commentValue, timestamp);
                 commentsLoaded.add(task);
             }
-
-
         Gson gson = new Gson();
-
         // Respond with the result.
         response.setContentType("application/json");
-        //String json = convertToJsonUsingGson(commentsShowing);
         response.getWriter().println(gson.toJson(commentsLoaded));
     }
-
-  private String convertToJsonUsingGson(ArrayList<String> commentsShowing) {
-        Gson gson = new Gson();
-        String json = gson.toJson(commentsShowing);
-        return json;
-  }
 
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {
         String value = request.getParameter(name);

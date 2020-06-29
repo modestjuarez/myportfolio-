@@ -36,15 +36,6 @@
       <!-- <p>Click the button to view some facts: </p>
       <button onclick="getDataFromJson()">Fetch Facts!</button>
       <ol id="data-container"></ol> -->
-      <h3>Where can you find me?</h3>
-            <p>Here are a few of my social media accounts and a video I made to promote the study abroad program I was on.</p>
-          <p>
-              <!-- Add icon library and then add icons -->
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-              <a href="www.linkedin.com/in/modestjuarez" class="fa fa-linkedin"></a>
-              <a href="https://youtu.be/SPaF-GnOtm0" class="fa fa-youtube"></a>
-              <a href="https://www.instagram.com/modestismyname/" class="fa fa-instagram"></a>
-          </p>
       <section>
             <!-- Slideshow container -->
             <div class="slideshow-container">
@@ -106,9 +97,9 @@
             </div>
       </section>
       <div>
-          <h2>Visitors have stated:</h2>
+          <h2>Add your comment to see what visitors have stated:</h2>
           <ol id="data-container"></ol><br><br></br>
-          <h2>What did you think of my page?</h2>
+          <h2>What did YOU think of my page?</h2>
           <div>
                 <form action="/data" method="POST">
                       <p>Comment below:</p>
@@ -116,10 +107,33 @@
                       <input type="submit" />
                  </form><br></br>
           </div>
-          <!--<p>Click the button to view some facts: </p>
-          <button onclick="getDataFromJson()">Fetch Comments!</button>
-          <ol id="data-container"></ol>-->
+          <h2>Translate Comments</h2>
+          <p>Copy and Past below that you would like to translate</p>
+          <textarea id="text"></textarea>
+          <p>Pick a language to translate the comments to: </p>
+
+            <select id="language">
+                <option value="en">English</option>
+                <option value="zh">Chinese</option>
+                <option value="es">Spanish</option>
+                <option value="hi">Hindi</option>
+                <option value="ar">Arabic</option>
+            </select>
+
+
+          <button onclick="getTranslation()">Translate!</button>
+          <!--<ol id="translation-results"></ol>-->
+          <div id="result"></div><br></br>
       </div>
+      <h3>Where can you find me?</h3>
+            <p>Here are a few of my social media accounts and a video I made to promote the study abroad program I was on.</p>
+          <p>
+              <!-- Add icon library and then add icons -->
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+              <a href="www.linkedin.com/in/modestjuarez" class="fa fa-linkedin"></a>
+              <a href="https://youtu.be/SPaF-GnOtm0" class="fa fa-youtube"></a>
+              <a href="https://www.instagram.com/modestismyname/" class="fa fa-instagram"></a>
+          </p>
     </div>
   </body>
 </html>
